@@ -1,7 +1,7 @@
 module MT940
   class Transaction
 
-    attr_accessor :bank_account, :contra_account, :amount, :description, :contra_account_owner, :date, :bank, :currency
+    attr_accessor :bank_account, :contra_account, :amount, :description, :contra_account_name, :date, :bank, :currency
 
     def initialize(attributes = {})
       @bank_account        = attributes[:bank_account]
@@ -10,7 +10,7 @@ module MT940
       @description         = attributes[:description]
       @date                = attributes[:date]
       @contra_account      = attributes[:contra_account]
-      @contra_account_name = attributes[:contra_account_owner]
+      @contra_account_name = attributes[:contra_account_name]
       @currency            = attributes[:currency]
     end
 
