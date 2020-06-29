@@ -66,7 +66,7 @@ module MT940
 
     def parse_tag_61
       if @line.match(/^:61:(\d{6})(\d{4})(C|D)(\d+),(\d{0,2})/)
-        type = $2 == 'D' ? -1 : 1
+        type = $3 == 'D' ? -1 : 1
         @transaction = MT940::Transaction.new(:bank_account => @bank_account, :amount => type * ($4 + '.' + $5).to_f, :bank => @bank, :currency => @currency)
         @transaction.date = parse_date($1)
         @transactions << @transaction
