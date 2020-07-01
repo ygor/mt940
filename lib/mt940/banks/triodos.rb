@@ -6,8 +6,8 @@ class MT940::Triodos < MT940::Base
 
   def parse_contra_account
     if @transaction.contra_account.nil? && @transaction.description.match(/000\d+(\d{9})(.*)/)
-      @transaction.contra_account = $2.rjust(9, '000000000')
-      @transaction.description = $3.strip
+      @transaction.contra_account = $1.rjust(9, '000000000')
+      @transaction.description = $2.strip
     end
   end
 
